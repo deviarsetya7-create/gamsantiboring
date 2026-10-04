@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GAMS ANTI BORING</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #fce4ec;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .kotak {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #e91e63;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #e91e63;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #halamanNama,
+        #halamanBoring {
+            display: none;
+        }
+
+        .pesan {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="kotak">
+
+    <!-- HALAMAN AWAL -->
+    <div id="halamanAwal">
+
+        <h1>🎮 GAMS ANTI BORING 🎮</h1>
+
+        <p>
+            Bosen saat belajar? 😴<br>
+            Yuk, kita bikin suasana jadi lebih seru! ✨
+        </p>
+
+        <button onclick="mulai()">🚀 MULAI</button>
+
+    </div>
+
+
+    <!-- HALAMAN NAMA -->
+    <div id="halamanNama">
+
+        <h1>👋 HALO!</h1>
+
+        <p>Siapa nama kamu?</p>
+
+        <input
+            type="text"
+            id="nama"
+            placeholder="Masukkan nama kamu..."
+        >
+
+        <br>
+
+        <button onclick="lanjut()">LANJUT ➡️</button>
+
+    </div>
+
+
+    <!-- HALAMAN BORING -->
+    <div id="halamanBoring">
+
+        <h1 id="sapaan"></h1>
+
+        <p class="pesan">
+            Apakah kamu sedang boring? 😴
+        </p>
+
+        <button onclick="iya()">IYA 😴</button>
+
+        <button onclick="tidak()">TIDAK 😎</button>
+
+        <p id="hasil"></p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // Link game Wordwall kamu
+    const gameWordwall =
+    "https://wordwall.net/resource/120495440/gams-anti-boring";
+
+
+    function mulai() {
+
+        document.getElementById("halamanAwal").style.display = "none";
+
+        document.getElementById("halamanNama").style.display = "block";
+
+    }
+
+
+    function lanjut() {
+
+        let nama =
+        document.getElementById("nama").value.trim();
+
+        if (nama === "") {
+
+            alert("Nama kamu belum diisi 😭");
+
+            return;
+
+        }
+
+        document.getElementById("halamanNama").style.display = "none";
+
+        document.getElementById("halamanBoring").style.display = "block";
+
+        document.getElementById("sapaan").innerText =
+        "Halo, " + nama + "! 👋";
+
+    }
+
+
+    function iya() {
+
+    document.getElementById("hasil").innerHTML =
+    `
+    YUKKK, SAATNYA MAIN! 🎮🔥
+    <br><br>
+    <button onclick="bukaGame()">
+        🎮 MAIN SEKARANG
+    </button>
+    `;
+
+}
+
+function bukaGame() {
+
+    window.open(gameWordwall, "_blank");
+
+}
+
+
+function tidak() {
+
+    document.getElementById("hasil").innerText =
+    "Wahh keren! 😎🔥 Tetap semangat belajar yaa!";
+
+}
+
+</script>
+
+</body>
+</html>
